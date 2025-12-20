@@ -1,44 +1,27 @@
 <?php
 
-function hello() {
-    var_dump('hello');
-}
+class Box {
+    public $width;
+    public $height;
+    public $length;
 
-hello();
-
-function helloName($name = 'Nameless') {
-    var_dump("Hello $name!");
-}
-
-helloName('Ken');
-helloName('Martin');
-helloName(); //kui lahter jäetakse tühjaks, siis default väärtus
-
-
-function sum($a, $b) {
-    return $a+$b; //peale returni midagi edasi ei tehta sellest kohas
-}
-
-$answer = sum(2,4);
-var_dump($answer);
-
-function values(...$values) {
-    var_dump(...$values); //... prindib eraldi int() numbrid välja mitte array enam
-}
-
-values(1, 2, 3, 4, 5, 6);
-
-function name(string $name):string { //string lõpus viitab tagastus tüübile
-    return ucwords($name);
-}
-
-// name(['toomas']);
-
-function recursive($i) {
-    var_dump($i);
-    if($i < 10){
-        recursive($i+1);
+    public function volume() {
+        return $this->width * $this->height * $this->length;
     }
-}
+};
 
-recursive(0);
+$box1 = new Box();
+$box1->width = 10;
+$box1->height = 10;
+$box1->length = 10;
+var_dump($box1->volume());
+var_dump($box1);
+
+$box2 = new Box();
+$box2->width = 20;
+$box2->height = 20;
+$box2->length = 20;
+var_dump($box2->volume());
+var_dump($box2);
+
+var_dump($box1); //box2 tegemine box1 väärtusi ei muuda
