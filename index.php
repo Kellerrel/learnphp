@@ -1,18 +1,15 @@
 <?php
 
-$num = 10;
-$num = 10.2;
-$name = 'Ken';
-$num = 'Hello\n$name';
-$num = "Hello\n$name";
-$num = <<<END
-Hello
-$name
-END;
-$num = true;
-$num = false;
-$num = null;
-$num = array(1, 2, 3, 4);
-$num = [1, 2, 3, 4];
-$num = new stdClass();
+$num = 1;
+$num = 1+1;
+$num = $num + 1;
+$num += 1;
+$num -= 1;
+$num *= 2;
+$num /= 2;
+$num **= 2;
+$num %= 2;
+$num ++;
+$num --;
+$num = pow(2, 10);
 var_dump($num);
