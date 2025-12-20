@@ -1,53 +1,40 @@
 <?php
-$num = 11;
-if($num > 10) {
-    var_dump('Bigger than 10');
-} else if ($num === 10) {
-    var_dump('Equal to 10');
-} else {
-    var_dump('Smaller than 10');
+
+for($i=0;$i<10;$i++) {
+    var_dump($i);
 }
 
-$day = (int) date('N', strtotime('19.12.2025'));
-var_dump($day);
-
-if($day === 1) {
-    var_dump('Monday');
-} else if($day === 2) {
-    var_dump('Tuesday');
-}  else if($day === 3) {
-    var_dump('Wednesday');
-}  else if($day === 4) {
-    var_dump('Thursday');
-}  else if($day === 5 || $day === 6) {
-    var_dump('Partyday');
-}   else if($day === 7) {
-    var_dump('Sunday');
-} else {
-    var_dump('Weirdday');
+for($i=10;$i>0;$i--) {
+    var_dump($i);
 }
 
-switch($day) {
-    case 1:
-        var_dump('Monday');
-        break;
-    case 2:
-        var_dump('Tuesday');
-        break;
-    case 3:
-        var_dump('Wednesday');
-        break;
-    case 4:
-        var_dump('Thursday');
-        break;
-    case 5:
-        var_dump('Friday friday friday....');
-    case 6:
-        var_dump('Partyday');
-        break;
-    case 7:
-        var_dump('Sunday');
-        break;
-    default:
-        var_dump('Weirdday');
+
+for($i=1;$i<10_000_000;$i*=2) {
+    var_dump($i);
+}
+
+$time = time();
+var_dump($time);
+$i = 0;
+while($time+3 > time()) {
+    $i++;
+}
+var_dump($i);
+
+while(false) {
+    var_dump('WHILE');
+}
+
+do {
+    var_dump('DO');
+} while(false);
+
+$array = ['apple', 'cherry', 'pear'];
+
+foreach($array as $value) {
+    var_dump($value);
+}
+
+foreach($array as $i => $fruit) {
+    var_dump($i, $fruit);
 }
