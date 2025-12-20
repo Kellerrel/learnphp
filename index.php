@@ -5,7 +5,7 @@ var_dump($array[1]);
 $array[] = 4;
 $array[2] = 22;
 $array = [
-    'name' => 'Kaspar',
+    'name' => 'Ken',
     'age' => 32,
 ];
 var_dump($array['name']);
