@@ -1,75 +1,30 @@
 <?php
 
 class Box {
-    public int $width;
-    protected $height;
-    private $length;
-
-    public function __construct($width, $height, $length) {
-        $this->height = $height;
-        $this->length = $length;
-        $this->width = $width;
-
-        var_dump('Object created');
-    }
-    
-    public function __destruct()
-    {
-        var_dump('Object destroyed');
-    }
-
-    public function __toString()
-    {
-        return 'some box';
-    }
-
-    public function __get($name){
-        var_dump($name);
-        return 'some value';
-    }
-
-    public function __set($name, $value){
-        var_dump($name, $value);
-    }
-
-    public function setLength(int $length) {
-        if($length<0){
-            throw new Exception('You are stupid');
-        }
-        $this->length = $length;
-    }
-
-    public function volume() {
-        return $this->width * $this->height * $this->length;
-    }
+    public $num;
 }
 
-class MetalBox extends Box {
-    use HasSmell;
-    public $weightPerUnit;
+$num1 = 1;
+$num2 = &$num1;
+$num2 = 2;
+var_dump($num1, $num2);
 
-    public function weight() {
-        return $this->volume() * $this->weightPerUnit;
-    }
+$box1 = new Box();
+$box1->num = 1;
+$box2 = clone $box1;
+$box2->num = 2;
+var_dump($box1->num, $box2->num);
+var_dump($box1, $box2);
+
+$array = [1,2,3,4,5];
+
+for($i=0;$i<count($array);$i++){
+    $num = &$array[$i];
+    $num *=2;
 }
 
-trait HasSmell {
-    public $smell;
-
-    public function sniff(){
-        var_dump($this->smell);
-    }
+foreach($array as &$num) {
+    $num *=2;
+    var_dump($num);
 }
-
-function makeBox() {
-    $metal1 = new MetalBox(10, 10, 10);
-    var_dump($metal1);
-}
-makeBox();
-$metal1 = new MetalBox(10, 10, 10);
-var_dump($metal1);
-echo $metal1;
-var_dump($metal1->coolbeans);
-$metal1->catlitter = 'asdasdasd';
-
-var_dump('end');
+var_dump($array);
