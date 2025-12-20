@@ -1,58 +1,53 @@
 <?php
+$num = 11;
+if($num > 10) {
+    var_dump('Bigger than 10');
+} else if ($num === 10) {
+    var_dump('Equal to 10');
+} else {
+    var_dump('Smaller than 10');
+}
 
-$array = [1, 2, 3];
-var_dump($array[1]);
-$array[] = 4;
-$array[2] = 22;
-$array = [
-    'name' => 'Ken',
-    'age' => 32,
-];
-var_dump($array['name']);
-$array = [
-    1,
-    'hello' => 'world',
-    2,
-    3,
-    'cool' => 'stuff',
-    '4',
-    true,
-    [1, 2, 3],
-];
-var_dump($array[5][1]);
-$array = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9],
-];
-var_dump($array[1][2]);
-$array = [
-  [[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9],],
-  [[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9],],
-  [[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9],[1,2,3],
-  [4,5,6],
-  [7,8,9]],
-];
-var_dump($array[2][2][2]);
-$array = [[[[[[1]]]]]];
+$day = (int) date('N', strtotime('19.12.2025'));
+var_dump($day);
 
-var_dump($array[0][0][0][0][0][0]);
-$array = ['apple', 'cherry', 'banana'];
-$text = implode(',', $array);
-var_dump($text);
+if($day === 1) {
+    var_dump('Monday');
+} else if($day === 2) {
+    var_dump('Tuesday');
+}  else if($day === 3) {
+    var_dump('Wednesday');
+}  else if($day === 4) {
+    var_dump('Thursday');
+}  else if($day === 5 || $day === 6) {
+    var_dump('Partyday');
+}   else if($day === 7) {
+    var_dump('Sunday');
+} else {
+    var_dump('Weirdday');
+}
+
+switch($day) {
+    case 1:
+        var_dump('Monday');
+        break;
+    case 2:
+        var_dump('Tuesday');
+        break;
+    case 3:
+        var_dump('Wednesday');
+        break;
+    case 4:
+        var_dump('Thursday');
+        break;
+    case 5:
+        var_dump('Friday friday friday....');
+    case 6:
+        var_dump('Partyday');
+        break;
+    case 7:
+        var_dump('Sunday');
+        break;
+    default:
+        var_dump('Weirdday');
+}
