@@ -1,9 +1,9 @@
 <?php
 
 class Box {
-    public $width; //väärtust saab kirjutada ja lugeda kõikjal
-    protected $height; //väärtust saab lugeda klasssi sees, väljapool ei saa, subclassis saab ka lugeda
-    private $length; //ainult klassi sees kus see sätitud on
+    public int $width;
+    protected $height;
+    private $length;
 
     public function __construct($width, $height, $length) {
         $this->height = $height;
@@ -45,10 +45,19 @@ class Box {
 }
 
 class MetalBox extends Box {
+    use HasSmell;
     public $weightPerUnit;
 
     public function weight() {
         return $this->volume() * $this->weightPerUnit;
+    }
+}
+
+trait HasSmell {
+    public $smell;
+
+    public function sniff(){
+        var_dump($this->smell);
     }
 }
 
