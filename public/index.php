@@ -1,42 +1,30 @@
 <?php
-function dump(...$vars)
-{
+function dump(...$vars) {
     echo '<pre>';
     var_dump(...$vars);
     echo '</pre>';
 }
 
 spl_autoload_register(function ($class) {
-    dump($class);
-    $class = str_replace('App\\', '', $class);
+    $class = str_replace('App\\', '', $class); 
     require_once "../src/$class.php";
 });
 
-use App\Controllers\PublicController;
+require '../routes.php';
+
 use App\Router;
 
-$router = new Router();
-dump($router);
-
-$db = new App\DB();
-dump($db);
-
-$controller = new PublicController();
-dump($controller);
-
-// switch($_SERVER['REQUEST_URI']){
-//     case '/':
-//         $title = 'World News';
-//         include '../views/page.php';
-//         break;
-//      case '/us':
-//         $title = 'U.S News';
-//         include '../views/page.php';
-//         break;
-//     case '/tech':
-//         $title = 'Tech News';
-//         include '../views/page.php';
-//         break;
-//     default:
-//         echo '404- page not found';
-//     };
+$router = new Router($_SERVER['REQUEST_URI']);
+$match = $router->match();
+if($match){
+    if(is_callable($match['action'])) {
+        call_user_func($match['action']);
+    } elseif (is_array($match['action'])) {
+        $className = $match['action'][0];
+        $controller = new $className();
+        $method = $match['action'][1];
+        $controller->$method();
+    }
+} else {
+    echo '404 - page not found';
+}
