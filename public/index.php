@@ -1,16 +1,12 @@
 <?php
-function dump(...$vars) {
-    echo '<pre>';
-    var_dump(...$vars);
-    echo '</pre>';
-}
 
 spl_autoload_register(function ($class) {
     $class = str_replace('App\\', '', $class); 
-    require_once "../src/$class.php";
+    require_once __DIR__ .  "/../src/$class.php";
 });
 
-require '../routes.php';
+require __DIR__ . '/../helpers.php';
+require __DIR__ . '/../routes.php';
 
 use App\Router;
 

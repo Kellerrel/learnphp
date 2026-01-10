@@ -7,18 +7,18 @@ class PublicController
     public function index()
     {
         $title = 'World News';
-        include __DIR__ . '/../../views/page.php';
+        view('page', compact('title'));
     }
 
     public function us()
     {
-        $title = 'U.S News';
-        include  __DIR__ . '/../../views/page.php';
+        $title = 'World News';
+        view('page', compact('title'));
     }
     
     public function tech()
     {
-        $title = 'Tech News';
-        include  __DIR__ . '/../../views/page.php';
+        $title = 'World News';
+        view('page', compact('title'));
     }
 }
