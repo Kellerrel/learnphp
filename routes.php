@@ -12,3 +12,5 @@ Router::addRoute('/tech', [PublicController::class, 'tech']);
 Router::addRoute('/templating', [PublicController::class, 'templating']);
 
 Router::addRoute('/form', [PublicController::class, 'form']);
+
+Router::addRoute('/answer', [PublicController::class, 'answer']);

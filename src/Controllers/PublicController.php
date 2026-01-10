@@ -31,9 +31,14 @@ class PublicController
 
     public function form()
     {
-        $name = $_GET['name'] ?? 'Nameless';
-        $name = $_GET['age'] ?? 'Ageless';    
+        $name = $_POST['name'] ?? 'Nameless';
+        $age = $_POST['age'] ?? 'Ageless';    
         
         view('form',compact('name','age'));
+    }
+
+    public function answer()
+    {
+        dump($_POST, $_GET, $_REQUEST);
     }
 }
