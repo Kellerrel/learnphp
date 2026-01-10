@@ -10,7 +10,7 @@ require __DIR__ . '/../routes.php';
 
 use App\Router;
 
-$router = new Router($_SERVER['REQUEST_URI']);
+$router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router->match();
 if($match){
     if(is_callable($match['action'])) {
