@@ -12,4 +12,4 @@
       <?php endif ?>
     <?php endfor ?>
   </main>
-<?php include '/partials/footer.php'; ?>
+<?php include __DIR__ . '/partials/footer.php'; ?>
