@@ -1,6 +1,6 @@
-<?php include 'partials/header.php'; ?>
-<?php include 'partials/theme-select.php'; ?>
-<?php include 'partials/nav.php'; ?>
+<?php include __DIR__ . '/partials/header.php'; ?>
+<?php include __DIR__ . '/partials/theme-select.php'; ?>
+<?php include __DIR__ . '/partials/nav.php'; ?>
 
   <main class="container">
     <?php include 'partials/hero.php'; ?>
