@@ -21,4 +21,11 @@ class PublicController
         $title = 'World News';
         view('page', compact('title'));
     }
+
+    public function templating()
+    {
+        $name = 'Ken';
+        $age = 31;
+        view('templating',compact('age','name'));
+    }
 }
